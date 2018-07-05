@@ -4,7 +4,8 @@
   "description": "The api for the livecoin faucet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,19 @@
   },
   "homepage": "https://github.com/elliottminns/livecoin-faucet#readme",
   "dependencies": {
+    "int": "^0.2.0",
+    "jayson": "^2.0.6",
     "koa": "^2.5.1",
     "koa-bodyparser": "^4.2.1",
     "koa-morgan": "^1.0.1",
     "koa-mount": "^3.0.0",
     "koa-response-time": "^2.0.0",
+    "koa-router": "^7.4.0",
     "koa-static-server": "^1.3.4",
-    "mongoose": "^5.2.1"
+    "mongoose": "^5.2.1",
+    "random-number": "0.0.9",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5",
+    "url": "^0.11.0"
   }
 }

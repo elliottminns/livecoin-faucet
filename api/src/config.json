@@ -1,0 +1,15 @@
+{
+  "env": {
+    "MONGO_DATABASE_NAME": "lvcfaucet",
+    "MONGO_URL": "mongodb://127.0.0.1:27017",
+    "COINHIVE_CAPTCHA_SITE_KEY": "oPlQZRutGf29yLd3Iaye10I44Cc5FKSU",
+    "COINHIVE_CATPCHA_SECRET_KEY": "",
+    "COINHIVE_NUMBER_HASHES": "512",
+    "COIN_PUBKEY_PREFIX": "30",
+    "COIN_SCRIPT_PREFIX": "50",
+    "COIN_RPC_USER": "user",
+    "COIN_RPC_PASS": "helloworld",
+    "COIN_RPC_PORT": "8332",
+    "COIN_RPC_URL": "127.0.0.1"
+  }
+}
