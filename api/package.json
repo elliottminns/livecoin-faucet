@@ -1,0 +1,19 @@
+{
+  "name": "livecoin-faucet-api",
+  "version": "1.0.0",
+  "description": "The api for the livecoin faucet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elliottminns/livecoin-faucet.git"
+  },
+  "author": "Elliott Minns",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elliottminns/livecoin-faucet/issues"
+  },
+  "homepage": "https://github.com/elliottminns/livecoin-faucet#readme"
+}
