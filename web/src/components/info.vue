@@ -3,7 +3,9 @@
   <h1 class="title is-4">
     We're giving away {{ symbol }} every {{ minutes }} minutes
   </h1>
-  <rewards-table :symbol="symbol" :rewards="rewards" />
+  <rewards-table :symbol="symbol"
+                 :rewards="rewards"
+                 :magnitude="magnitude" />
   <h2 class="title is-6">
     All you have to do is enter your {{ symbol }} address
     and solve the captcha!
@@ -13,6 +15,7 @@
 
 <script>
 import RewardsTable from '@/components/rewards-table'
+import faucet from '@/../../faucet.json'
 
 export default {
   name: 'Info',
@@ -29,15 +32,12 @@ export default {
   components: {
     RewardsTable
   },
-  data() {
-    return {
-      rewards: [{
-        chance: 0.1,
-        prize: 10e8
-      }, {
-        chance: 0.9,
-        prize: 1e8
-      }]
+  computed: {
+    rewards() {
+      return faucet.rewards
+    },
+    magnitude() {
+      return faucet.roll.max
     }
   }
 }

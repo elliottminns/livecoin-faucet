@@ -3,8 +3,17 @@
 import '@/styles/configure.scss'
 import Vue from 'vue'
 import App from './App'
+import axios from 'axios'
+import NProgress from 'nprogress'
 
 Vue.config.productionTip = false
+
+axios.interceptors.request.use(function(config) {
+  NProgress.start()
+  return config
+}, function(error) {
+  Promise.reject(error)
+})
 
 /* eslint-disable no-new */
 new Vue({

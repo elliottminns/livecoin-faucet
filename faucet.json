@@ -1,5 +1,6 @@
 {
   "minutes": 10,
+  "min_balance": 200,
   "roll": {
     "min": 0,
     "max": 100000

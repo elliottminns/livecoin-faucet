@@ -10,7 +10,7 @@
     <tr v-for="reward in rewards" :key="reward.prize">
       <th>{{ (reward.prize / 1e8) }}</th>
       <td>
-        {{ Math.round((reward.chance * magnitude)) / (magnitude / 100) }}%
+        {{ reward.chance / magnitude * 100 }}%
       </td>
     </tr>
   </tbody>

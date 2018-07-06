@@ -11,8 +11,16 @@ class CoinService {
   }
 
   async sendToMany(ledger) {
-    if (Object.key(ledger).length === 0) { return }
+    if (Object.keys(ledger).length === 0) { return }
     return this.client.request('sendmany', ["", ledger]).then(r => r.result)
+  }
+
+  async getBalance() {
+    return this.client.request('getbalance').then(r => r.result)
+  }
+
+  async getNewAddress() {
+    return this.cleint.request('getnewaddress').then(r => r.result)
   }
 }
 

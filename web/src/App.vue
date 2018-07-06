@@ -13,6 +13,7 @@
 import Info from '@/components/info'
 import AddressForm from '@/components/address-form'
 import PayoutsTable from '@/components/payouts-table'
+import Payouts from '@/api/payouts'
 
 export default {
   name: 'App',
@@ -31,11 +32,18 @@ export default {
   },
   data() {
     return {
-      payouts: [{
-        address: 'my-payout-address',
-        amount: 10e8,
-        txid: 'abcdefg'
-      }]
+      payouts: []
+    }
+  },
+  mounted() {
+    window.setInterval(() => {
+      this.reloadPayouts()
+    }, 120 * 1e3)
+    this.reloadPayouts()
+  },
+  methods: {
+    async reloadPayouts() {
+      this.payouts = await Payouts.read()
     }
   }
 }

@@ -1,12 +1,12 @@
 const controller = require('./controller')
-const captcha = require('../../captcha')
+const Captcha = require('../../captcha')
 
 exports.create = async function(ctx) {
   const address = ctx.request.body.address
   const captcha = ctx.request.body.captcha
   const ip = ctx.request.ip
 
-  await captcha.validate(captcha)
+  await Captcha.validate(captcha)
 
   const entry = await controller.create({ address, ip })
 

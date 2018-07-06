@@ -8,7 +8,7 @@ const address_types = {
   testnet: '6f'
 }
 
-const p2sh_type = {
+const p2sh_types = {
   prod: config.get('COIN_SCRIPT_PREFIX'),
   tesnet: 'c4'
 }

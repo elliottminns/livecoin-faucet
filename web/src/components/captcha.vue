@@ -26,8 +26,10 @@ export default {
 
     await new Promise((resolve) => {
       window.setTimeout(() => {
+        window.CoinHive.Captcha.ElementsCreated = false
+        window.CoinHive.Captcha.CreateElements()
         resolve()
-      }, 500)
+      }, 250)
     })
 
     window.CoinHive.Captcha.ElementsCreated = false

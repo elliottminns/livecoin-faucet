@@ -34,6 +34,7 @@
 
 <script>
 import CoinCaptcha from '@/components/captcha'
+import Entries from '@/api/entries'
 
 export default {
   name: 'Address Form',
@@ -70,12 +71,14 @@ export default {
 
       this.state = 'is-loading'
 
-      // Make api request
-      await new Promise((resolve) => {
-        window.setTimeout(() => {
-          resolve()
-        }, 1000)
-      })
+      try {
+        await Entries.create({
+          address: this.address,
+          captcha: this.captcha
+        })
+      } catch (error) {
+        console.log(error)
+      }
 
       this.state = ''
       this.success = true

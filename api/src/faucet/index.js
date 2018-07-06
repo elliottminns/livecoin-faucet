@@ -1,16 +1,28 @@
+const schedule = require('node-schedule')
 const Entries = require('../api/entries/controller')
 const Payouts = require('../api/payouts/controller')
 const config = require('../../../faucet.json')
 const rn = require('random-number')
 const CoinService = require('../coinservice')
+const Mailer = require('../mailer')
 
 class Faucet {
   constructor() {
     this.minutes = config.minutes
     this.coinservice = new CoinService()
+    this.sendTopup = true
+    this.mailer = new Mailer()
   }
 
   async start() {
+    this.job = schedule.scheduleJob(
+      `*/${this.minutes} * * * *`, async () => {
+        try {
+          await this.runFaucet()
+        } catch (error) {
+          console.log(error);
+        }
+    })
   }
 
   async runFaucet() {
@@ -41,7 +53,8 @@ class Faucet {
     })
 
     const txid = await this.coinservice.sendToMany(prizes)
-    await the.createPayouts({ entries: entryRewards, txid })
+    await this.createPayouts({ entries: entryRewards, txid })
+    await this.checkBalance()
   }
 
   rewardForValue(value) {
@@ -69,6 +82,19 @@ class Faucet {
         roll: entry.roll
       })
     })
+  }
+
+  async checkBalance() {
+    const balance = await coinservice.getBalance()
+    if (balance < config.min_balance) {
+      if (this.sendTopup) {
+        const address =  await this.coinservice.getNewAddress()
+        this.mailer.sendCoinTopupMail({ address, balance })
+        this.sendTopup = false
+      }
+    } else {
+      this.sendTopup = true
+    }
   }
 }
 
