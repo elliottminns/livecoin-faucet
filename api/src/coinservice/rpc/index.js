@@ -13,7 +13,7 @@ class RPC {
       host: url,
       port: this.port,
       headers: {
-        'Authroization': `Basic ${auth}`
+        'Authorization': `Basic ${auth}`
       }
     })
   }

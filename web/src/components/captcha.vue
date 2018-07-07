@@ -18,11 +18,11 @@ export default {
     }
   },
   async mounted() {
-    if (!window.captchaCallback) {
+    //if (!window.captchaCallback) {
       window.captchaCallback = (token) => {
         this.captchaCallback(token)
       }
-    }
+    //}
 
     await new Promise((resolve) => {
       window.setTimeout(() => {
