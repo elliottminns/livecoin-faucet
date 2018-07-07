@@ -10,6 +10,11 @@
     "COIN_RPC_USER": "user",
     "COIN_RPC_PASS": "helloworld",
     "COIN_RPC_PORT": "8332",
-    "COIN_RPC_URL": "127.0.0.1"
+    "COIN_RPC_URL": "127.0.0.1",
+    "FAUCET_DOMAIN": "host.com", 
+    "ADMIN_EMAIL": "admin@example.com",
+    "SMTP_HOST": "smtp.gmail.com",
+    "SMTP_USER": "myemail@gmail.com",
+    "SMTP_PASS": "myemailpasswordforgmail"
   }
 }

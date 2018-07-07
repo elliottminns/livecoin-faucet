@@ -8,7 +8,7 @@ const Mailer = require('../mailer')
 
 class Faucet {
   constructor() {
-    this.minutes = 1;//config.minutes
+    this.minutes = config.minutes
     this.coinservice = new CoinService()
     this.sendTopup = true
     this.mailer = new Mailer()

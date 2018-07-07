@@ -20,6 +20,8 @@ api.use(router.routes())
 app.use(mount('/api', api))
 api.proxy = true
 
+app.use(serve({ rootDir: 'src/static' }))
+
 module.exports = {
   start: async () => {
     try {
