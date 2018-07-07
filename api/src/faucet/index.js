@@ -50,7 +50,7 @@ class Faucet {
     const prizes = entryRewards.reduce((res, e) => {
       res[e.address] = (e.amount / 1e8)
       return res
-    })
+    }, {})
 
     const txid = await this.coinservice.sendToMany(prizes)
     await this.createPayouts({ entries: entryRewards, txid })
@@ -60,7 +60,7 @@ class Faucet {
   rewardForValue(value) {
     const rewards = config.rewards
     return rewards.reduce((res, reward) => {
-      const max = reward.chance + reward.previous
+      const max = reward.chance + res.previous
       const min = res.previous
 
       if (value <= max && value > min) {
@@ -85,7 +85,7 @@ class Faucet {
   }
 
   async checkBalance() {
-    const balance = await coinservice.getBalance()
+    const balance = await this.coinservice.getBalance()
     if (balance < config.min_balance) {
       if (this.sendTopup) {
         const address =  await this.coinservice.getNewAddress()

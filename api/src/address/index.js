@@ -4,7 +4,7 @@ const config = require('../configuration')
 
 
 const address_types = {
-  prod: config.get('COIN_PUBKEY_PREFIX'),
+  prod: config.get('COIN_SCRIPT_PREFIX'),
   testnet: '6f'
 }
 
